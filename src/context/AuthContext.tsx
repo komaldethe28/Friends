@@ -44,7 +44,7 @@ const USERS: Record<string, { password: string; data: UserData }> = {
     }
   },
   pragati: {
-    password: "29-28",
+    password: "28-28",
     data: {
       name: "pragati",
       displayName: "Pragati",
@@ -71,7 +71,7 @@ const USERS: Record<string, { password: string; data: UserData }> = {
     }
   },
   diksha_arsule: {
-    password: "17-28",
+    password: "18-28",
     data: {
       name: "diksha_arsule",
       displayName: "Diksha",
