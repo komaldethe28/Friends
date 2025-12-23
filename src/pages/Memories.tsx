@@ -82,17 +82,8 @@ const Memories: React.FC = () => {
                     loading="lazy"
                   />
                   
-                  {/* Overlay gradient for better text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-                  
                   {/* Sparkle decoration */}
                   <Sparkles className="absolute top-4 right-4 w-6 h-6 text-white/70 group-hover:animate-sparkle" />
-                </div>
-
-                {/* Card content */}
-                <div className="p-5">
-                  <h3 className="text-xl font-script text-foreground mb-1">{memory.title}</h3>
-                  <p className="text-sm text-muted-foreground">{memory.description}</p>
                 </div>
 
                 {/* Corner heart */}
