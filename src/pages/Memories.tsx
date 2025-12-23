@@ -4,56 +4,19 @@ import { ArrowLeft, Heart, Sparkles } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import FloatingHearts from '@/components/FloatingHearts';
 
-const memories = [
-  {
-    id: 1,
-    title: "First Meet",
-    description: "The day our friendship began ✨",
-    color: "from-pink to-coral",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=300&fit=crop&crop=faces",
-  },
-  {
-    id: 2,
-    title: "Fun Times",
-    description: "All the laughs we shared 😂",
-    color: "from-coral to-gold",
-    image: "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=400&h=300&fit=crop&crop=faces",
-  },
-  {
-    id: 3,
-    title: "Adventures",
-    description: "Exploring the world together 🌍",
-    color: "from-gold to-pink",
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop&crop=faces",
-  },
-  {
-    id: 4,
-    title: "Celebrations",
-    description: "Birthdays, festivals & more 🎉",
-    color: "from-heart to-coral",
-    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop&crop=faces",
-  },
-  {
-    id: 5,
-    title: "Support",
-    description: "Through thick and thin 💪",
-    color: "from-pink to-heart",
-    image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=300&fit=crop&crop=faces",
-  },
-  {
-    id: 6,
-    title: "Forever",
-    description: "Friends till the end 💕",
-    color: "from-coral to-pink",
-    image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=300&fit=crop&crop=faces",
-  },
-];
-
 const Memories: React.FC = () => {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const [showFooter, setShowFooter] = useState(false);
+
+  const memories = currentUser?.photos.map((photo, index) => ({
+    id: index + 1,
+    title: `Memory ${index + 1}`,
+    description: "A beautiful moment captured 💕",
+    color: ["from-pink to-coral", "from-coral to-gold", "from-gold to-pink", "from-heart to-coral", "from-pink to-heart", "from-coral to-pink"][index % 6],
+    image: photo,
+  })) || [];
 
   useEffect(() => {
     // Animate cards one by one
@@ -67,7 +30,7 @@ const Memories: React.FC = () => {
     setTimeout(() => {
       setShowFooter(true);
     }, memories.length * 300 + 500);
-  }, []);
+  }, [memories]);
 
   return (
     <div className="min-h-screen gradient-warm relative overflow-hidden">
