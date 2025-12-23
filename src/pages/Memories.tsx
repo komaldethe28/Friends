@@ -75,11 +75,22 @@ const Memories: React.FC = () => {
               <div className="group relative bg-card rounded-3xl overflow-hidden shadow-card hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                 {/* Photo section */}
                 <div className={`aspect-[4/3] bg-gradient-to-br ${memory.color} relative overflow-hidden`}>
+                  {/* Loading skeleton */}
+                  <div className="absolute inset-0 bg-muted animate-pulse rounded-lg" />
+                  
                   <img
                     src={memory.image}
                     alt={memory.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     loading="lazy"
+                    onLoad={(e) => {
+                      const img = e.target as HTMLImageElement;
+                      img.style.opacity = '1';
+                      // Hide skeleton
+                      const skeleton = img.previousElementSibling as HTMLElement;
+                      if (skeleton) skeleton.style.display = 'none';
+                    }}
+                    style={{ opacity: 0, transition: 'opacity 0.3s' }}
                   />
                   
                   {/* Sparkle decoration */}
