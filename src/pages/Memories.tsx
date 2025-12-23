@@ -10,36 +10,42 @@ const memories = [
     title: "First Meet",
     description: "The day our friendship began ✨",
     color: "from-pink to-coral",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=300&fit=crop&crop=faces",
   },
   {
     id: 2,
     title: "Fun Times",
     description: "All the laughs we shared 😂",
     color: "from-coral to-gold",
+    image: "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=400&h=300&fit=crop&crop=faces",
   },
   {
     id: 3,
     title: "Adventures",
     description: "Exploring the world together 🌍",
     color: "from-gold to-pink",
+    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop&crop=faces",
   },
   {
     id: 4,
     title: "Celebrations",
     description: "Birthdays, festivals & more 🎉",
     color: "from-heart to-coral",
+    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop&crop=faces",
   },
   {
     id: 5,
     title: "Support",
     description: "Through thick and thin 💪",
     color: "from-pink to-heart",
+    image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=300&fit=crop&crop=faces",
   },
   {
     id: 6,
     title: "Forever",
     description: "Friends till the end 💕",
     color: "from-coral to-pink",
+    image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=300&fit=crop&crop=faces",
   },
 ];
 
@@ -104,20 +110,20 @@ const Memories: React.FC = () => {
               }}
             >
               <div className="group relative bg-card rounded-3xl overflow-hidden shadow-card hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                {/* Photo placeholder with gradient */}
+                {/* Photo section */}
                 <div className={`aspect-[4/3] bg-gradient-to-br ${memory.color} relative overflow-hidden`}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-primary-foreground">
-                      <Heart className="w-16 h-16 mx-auto mb-2 opacity-50" />
-                      <span className="text-sm opacity-70">Photo {index + 1}</span>
-                    </div>
-                  </div>
+                  <img
+                    src={memory.image}
+                    alt={memory.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  
+                  {/* Overlay gradient for better text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                   
                   {/* Sparkle decoration */}
-                  <Sparkles className="absolute top-4 right-4 w-6 h-6 text-primary-foreground/50 group-hover:animate-sparkle" />
-                  
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />
+                  <Sparkles className="absolute top-4 right-4 w-6 h-6 text-white/70 group-hover:animate-sparkle" />
                 </div>
 
                 {/* Card content */}
