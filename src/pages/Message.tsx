@@ -104,12 +104,18 @@ const Message: React.FC = () => {
 
             {/* Letter */}
             <div 
-              className={`absolute top-1/2 left-1/2 -translate-x-1/2 w-64 md:w-80 bg-card rounded-lg shadow-card p-6 md:p-8 transition-all duration-1000 ease-out ${
-                isOpen 
-                  ? 'opacity-100 -translate-y-[120%] md:-translate-y-[50%]' 
-                  : 'opacity-0 translate-y-0 pointer-events-none'
-              }`}
-            >
+  className={`absolute top-1/2 left-1/2 -translate-x-1/2
+  w-[90vw] max-w-sm
+  bg-card rounded-lg shadow-card
+  p-5 md:p-8
+  transition-all duration-1000 ease-out
+  ${
+    isOpen 
+      ? 'opacity-100 -translate-y-[60%] md:-translate-y-[50%]' 
+      : 'opacity-0 translate-y-0 pointer-events-none'
+  }`}
+>
+
               {/* Decorative header */}
               <div className="flex items-center justify-center gap-2 mb-4">
                 <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-pink" />
